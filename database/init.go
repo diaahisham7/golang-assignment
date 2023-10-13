@@ -5,6 +5,6 @@ var (
 )
 
 func InitDB() error {
-	err := initSqlLiteDB()
+	err := initSqlDB()
 	return err
 }

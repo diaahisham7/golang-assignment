@@ -26,7 +26,7 @@ type petsSqlliteModel struct {
 
 //endregion
 
-//region petsSqlliteTable
+// region petsSqlliteTable
 type petsSqlliteTable struct {
 	/*
 		DB database

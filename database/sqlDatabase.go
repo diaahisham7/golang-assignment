@@ -24,9 +24,10 @@ func initSqlDB() error {
 		os.Getenv("port"),
 		os.Getenv("dbname"),
 	)
+	fmt.Println(dsn)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		return errors.New(fmt.Sprintf("error connecting to database: %s", err.Error()))
+		return errors.New(fmt.Sprintf("error connecting to database: %s", "code:1"))
 	}
 	db.AutoMigrate(&petsSqlModel{})
 	PetsTable = petsSqlTable{
@@ -48,7 +49,7 @@ func (p petsSqlTable) GetById(id int) (models.PetModel, error) {
 	var result petsSqlModel
 	e := p.DB.First(&result, id)
 	if e.Error != nil {
-		return models.PetModel{}, e.Error
+		return models.PetModel{}, errors.New("error getting data: code:2")
 	}
 	return models.PetModel{
 		Id:    int(result.ID),
@@ -64,7 +65,7 @@ func (p petsSqlTable) GetAll(pageSize int, pageNo int) ([]models.PetModel, error
 	result := make([]petsSqlModel, 0)
 	e := p.DB.Model(petsSqlModel{}).Limit(limit).Offset(offset).Find(&result)
 	if e.Error != nil {
-		return []models.PetModel{}, e.Error
+		return []models.PetModel{}, errors.New("error getting data: code:3")
 	}
 	petsResult := make([]models.PetModel, 0)
 	for _, pet := range result {
@@ -87,7 +88,7 @@ func (p petsSqlTable) Create(pet models.PetModel) (models.PetModel, error) {
 
 	e := p.DB.Create(&petCreated)
 	if e.Error != nil {
-		return models.PetModel{}, e.Error
+		return models.PetModel{}, errors.New("error adding data: code:4")
 	}
 	pet.Id = int(petCreated.ID)
 	return pet, nil
@@ -97,14 +98,14 @@ func (p petsSqlTable) UpdateById(id int, pet models.PetModel) (models.PetModel, 
 	var fetchedPet petsSqlModel
 	e := p.DB.First(&fetchedPet, id)
 	if e.Error != nil {
-		return models.PetModel{}, e.Error
+		return models.PetModel{}, errors.New("error getting data: code:5")
 	}
 	fetchedPet.Name = pet.Name
 	fetchedPet.Age = pet.Age
 	fetchedPet.Breed = pet.Breed
 	e = p.DB.Save(&fetchedPet)
 	if e.Error != nil {
-		return models.PetModel{}, e.Error
+		return models.PetModel{}, errors.New("error updating data: code:6")
 	}
 	pet.Id = int(fetchedPet.ID)
 	return pet, nil
@@ -114,11 +115,11 @@ func (p petsSqlTable) DeleteById(id int) error {
 	var fetchedPet petsSqlModel
 	e := p.DB.First(&fetchedPet, id)
 	if e.Error != nil {
-		return e.Error
+		return errors.New("error getting data: code:7")
 	}
 	e = p.DB.Delete(&fetchedPet)
 	if e.Error != nil {
-		return e.Error
+		return errors.New("error deleting data: code:8")
 	}
 	return nil
 }

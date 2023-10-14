@@ -3,12 +3,10 @@ WORKDIR /go/src/app
 RUN apk -U add ca-certificates
 RUN apk update && apk upgrade && apk add git bash build-base pkgconf sudo
 
-
 ENV GO111MODULE=on
 COPY go.mod go.mod
 COPY go.sum go.sum
 RUN go mod download
-
 
 COPY . .
 # RUN go get ./main

@@ -24,7 +24,6 @@ func initSqlDB() error {
 		os.Getenv("port"),
 		os.Getenv("dbname"),
 	)
-	fmt.Println(dsn)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		return errors.New(fmt.Sprintf("error connecting to database: %s", "code:1"))

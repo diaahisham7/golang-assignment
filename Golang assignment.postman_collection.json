@@ -1,0 +1,880 @@
+{
+	"info": {
+		"_postman_id": "918eb948-0bf7-45c1-980b-7c029176f7bc",
+		"name": "Golang assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15844247"
+	},
+	"item": [
+		{
+			"name": "health check",
+			"item": [
+				{
+					"name": "ping",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/ping",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ping",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/ping",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"ping"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Oct 2023 20:07:27 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pong\": \"pong\"\n}"
+						}
+					]
+				},
+				{
+					"name": "echo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hello\": 25555\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/echo",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"echo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "echo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"hello\": 25555\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/echo",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"echo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Oct 2023 20:09:05 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"hello\": 25555\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "pets",
+			"item": [
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/pets/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"pets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/pets/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"pets",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "55"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Oct 2023 20:12:06 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 55,\n    \"name\": \"sesa\",\n    \"age\": 5,\n    \"breed\": \"wolf\"\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/pets/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"pets",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 00:58:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								}
+							],
+							"cookie": [],
+							"body": "\"error getting data: code:2\""
+						}
+					]
+				},
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/pets?pageno=2&pagesize=10",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"pets"
+							],
+							"query": [
+								{
+									"key": "pageno",
+									"value": "2"
+								},
+								{
+									"key": "pagesize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/pets",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"pets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Oct 2023 23:15:17 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"aaa\",\n        \"age\": 4,\n        \"breed\": \"cat\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"tom\",\n        \"age\": 5,\n        \"breed\": \"cat\"\n    }\n]"
+						},
+						{
+							"name": "pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/pets?pageno=2&pagesize=10",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"pets"
+									],
+									"query": [
+										{
+											"key": "pageno",
+											"value": "2"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 01:07:53 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "471"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 12,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    },\n    {\n        \"id\": 21,\n        \"name\": \"soss\",\n        \"age\": 4,\n        \"breed\": \"wolf\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/pets/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"pets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete by id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/pets/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"pets",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Oct 2023 23:05:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								}
+							],
+							"cookie": [],
+							"body": "\"Deleted successfully\""
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/pets/:id",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"pets",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 14 Oct 2023 00:59:41 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								}
+							],
+							"cookie": [],
+							"body": "\"error getting data: code:7\""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"soss\",\r\n    \"age\":4,\r\n    \"breed\":\"wolf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/pets",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"aaa\",\r\n    \"age\":4,\r\n    \"breed\":\"cat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/pets",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Oct 2023 22:57:27 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"aaa\",\n    \"age\": 4,\n    \"breed\": \"cat\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"tom\",\r\n    \"age\":5,\r\n    \"breed\":\"cat\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/pets/:id",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"pets",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update by id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"tom\",\r\n    \"age\":5,\r\n    \"breed\":\"cat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/pets/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"pets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Oct 2023 23:11:27 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"name\": \"tom\",\n    \"age\": 5,\n    \"breed\": \"cat\"\n}"
+				},
+				{
+					"name": "error",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"tom\",\r\n    \"age\":5,\r\n    \"breed\":\"cat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/pets/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"pets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Correlation-Id"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 14 Oct 2023 01:00:15 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						}
+					],
+					"cookie": [],
+					"body": "\"error getting data: code:5\""
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "127.0.0.1:5050",
+			"type": "string"
+		}
+	]
+}

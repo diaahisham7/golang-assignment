@@ -14,11 +14,13 @@ func GetPetByID(context *gin.Context) {
 	if err != nil {
 		log.Error("id param error: ", err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 	result, err := pets.GetById(int(id))
 	if err != nil {
 		log.Error(err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 	context.JSON(http.StatusOK, result)
 }
@@ -40,6 +42,7 @@ func GetPets(context *gin.Context) {
 	if err != nil {
 		log.Error(err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 
 	context.JSON(http.StatusOK, result)
@@ -51,11 +54,13 @@ func AddPet(context *gin.Context) {
 	if err != nil {
 		log.Error("error in request body: ", err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 	result, err := pets.Create(pet)
 	if err != nil {
 		log.Error(err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 	context.JSON(http.StatusOK, result)
 
@@ -66,17 +71,20 @@ func EditPet(context *gin.Context) {
 	if err != nil {
 		log.Error("id param error: ", err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 	pet := models.PetModel{}
 	err = context.ShouldBindJSON(&pet)
 	if err != nil {
 		log.Error("error in request body: ", err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 	result, err := pets.UpdateById(int(id), pet)
 	if err != nil {
 		log.Error(err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 	context.JSON(http.StatusOK, result)
 }
@@ -86,11 +94,13 @@ func DeletePets(context *gin.Context) {
 	if err != nil {
 		log.Error("id param error: ", err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 	err = pets.Delete(int(id))
 	if err != nil {
 		log.Error(err.Error())
 		context.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 	context.JSON(http.StatusOK, "Deleted successfully")
 }

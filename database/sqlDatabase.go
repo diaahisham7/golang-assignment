@@ -6,7 +6,6 @@ import (
 	"golang-assignment/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"os"
 )
 
 type petsSqlModel struct {
@@ -16,13 +15,21 @@ type petsSqlModel struct {
 	Breed string `json:"breed"`
 }
 
-func initSqlDB() error {
+type SqlConnInfo struct {
+	User     string
+	Password string
+	Host     string
+	Port     string
+	Dbname   string
+}
+
+func InitSqlDB(connInfo SqlConnInfo) error {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		os.Getenv("user"),
-		os.Getenv("password"),
-		os.Getenv("host"),
-		os.Getenv("port"),
-		os.Getenv("dbname"),
+		connInfo.User,
+		connInfo.Password,
+		connInfo.Host,
+		connInfo.Port,
+		connInfo.Dbname,
 	)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
